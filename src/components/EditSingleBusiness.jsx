@@ -22,40 +22,23 @@ const SingleBusiness = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // var myVal = { phone: ["item1", "item2", "item3"], name: "qwerty60" };
-    // for (const key in myVal) {
-    //   formData.append(key, myVal[key]);
-    // };
+    console.log (data.gsx$tags);  
+    // try {
+    //   if (imgSign) {
+    //     const formData = new FormData();
+    //     const arrOfKeys = ["gsx$logo", "_id"];
+    //     arrOfKeys.forEach((key) => formData.append(key, data[key]));
 
-    // let newVal = {};
-    // for (const [key, value] of formData.entries()) {
-    //   newVal[key] = value;
+    //     var newData = await businessServices.updateBusImg(data._id, formData);
+    //     console.log(newData);
+    //   }
+
+    //   await businessServices.updateBus(data);
+    //   alert("העסק עודכן");
+    // } catch (err) {
+    //   console.log(err);
+    //   alert("לא ניתן לעדכן");
     // }
-
-    // return console.log(newVal);
-
-    try {
-      if (imgSign) {
-        const formData = new FormData();
-        const arrOfKeys = ["gsx$logo", "_id"];
-        arrOfKeys.forEach((key) => formData.append(key, data[key]));
-
-        var newData = await businessServices.updateBusImg(data._id, formData);
-        console.log(newData);
-      }
-
-      //var newData = await businessServices.updateBus(data);
-      // var newVal = {...newData};
-      // for (const [key, value] of newData) {
-      //    newVal[key] = value;
-      // }
-      //console.log(newData.data);
-
-      //alert("העסק עודכן");
-    } catch (err) {
-      console.log(err);
-      //alert("לא ניתן לעדכן");
-    }
   };
 
   return (

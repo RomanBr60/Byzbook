@@ -11,8 +11,8 @@ const TagsComponent = ({
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    handleInputChange(tags, `tags`, `gsx$tags`);
-  }, [tags]);
+    handleInputChange(tags, "tags", "gsx$tags");
+  }, [handleInputChange, tags]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -22,15 +22,12 @@ const TagsComponent = ({
   };
 
   const addTag = () => {
-    if (inputValue.trim() !== "") {
-      if (tags.includes(inputValue.trim())) {
-        return;
-      } else {
-        const newTags = [...tags, inputValue.trim()];
-        setTags(newTags);
-        setInputValue("");
-      }
-    }
+    if (inputValue.trim() === "") return;
+    setTags((prev) => {
+      const newTags = [...prev, inputValue.trim()]
+      return newTags;
+    });
+    setInputValue("");
   };
 
   const removeTag = (index) => {
@@ -41,8 +38,8 @@ const TagsComponent = ({
 
   const handleChangeHandler = (e) => {
     setInputValue(e.target.value);
-    handleInputChange(e, `tags`, tags);
   };
+
   return (
     <div className="bg-light radius1 p-2">
       <div className="row gap-1 p-1">

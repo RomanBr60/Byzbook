@@ -4,10 +4,9 @@ import CityList from "../../Element/CityList";
 import EditBusinessPhone from "./EditBusinessPhone";
 import EditBusinessLinks from "./EditBusinessLinks";
 import EditBusinessWorkTime from "./EditBusinessWorkTime";
-import TagsComponent from "../../Element/TagsInput";
+import TagsInput from "../../Element/TagsInput";
 import EditBusinessImg from "./EditBusinessImg";
 import EditBusinessDesc from "./EditBusinessDesc";
-import Button from "../../Element/Button";
 
 const EditBusinessForm = ({
   imgSign,
@@ -18,14 +17,15 @@ const EditBusinessForm = ({
   servSignValue,
 }) => {
   const handleInputChange = (e, sign, val, i = undefined) => {
-    let file;
-    const value = e?.target?.value;
+    const value = e?.target?.value ?? e;
+    console.log (value)
     let arr = details[formItem?.servSign];
     if (sign === "toggle" || sign === `tags`) {
-      setDetails((prevState) => ({
+      /*setDetails((prevState) => ({
         ...prevState,
         [formItem?.servSign]: val,
-      }));
+      }));*/
+      console.log ({[formItem?.servSign]: val})
     } else if (sign === `img`) {
       setImgSign(true);
       setDetails((prevState) => ({
@@ -98,10 +98,7 @@ const EditBusinessForm = ({
           formItem={formItem}
         />
       ) : formItem?.type === `tags` ? (
-        <TagsComponent
-          sign={`editForm`}
-          details={details}
-          setDetails={setDetails}
+        <TagsInput
           handleInputChange={handleInputChange}
         />
       ) : formItem?.type === `img` ? (

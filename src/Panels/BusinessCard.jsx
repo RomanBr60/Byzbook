@@ -14,10 +14,8 @@ import ReportModal from "../components/ReportModal";
 export default function BusinessCard({
   data: {
     _id,
-    gsx$link,
     gsx$name,
     gsx$logo,
-    gsx$logoheight,
     gsx$address,
     gsx$city,
     gsx$phone,
@@ -34,7 +32,6 @@ export default function BusinessCard({
   className,
   ...props
 }) {
-  const [reportData, setReportData] = useState({});
   const [reportModal, setReportModal] = useState({ show: false });
   const fullAddress = useMemo(
     () => (!gsx$address ? gsx$city : `${gsx$address}, ${gsx$city}`),
@@ -53,15 +50,14 @@ export default function BusinessCard({
     [gsx$email]
   );
 
-  //------------------------------------------------------------------------
-  /*const setBg = () => {
-        return "#" + Math.floor(Math.random()*16777215).toString(16);
-    }*/
+  useEffect (()=>{
+    console.log (gsx$logo)
+  },[gsx$logo])
 
   const emptyVal = (val) => val == undefined || val == null || val.trim() == "";
   const myData = { _id, gsx$name };
   return (
-    <div 
+    <div
       dir="rtl"
       className={className + " bgc1 gap-1  border border-white pb-2"}
       {...props}
@@ -107,7 +103,6 @@ export default function BusinessCard({
                 ""
               ) : (
                 <Col
-                 
                   key={i}
                   className="align-items-center justify-content-center text-center"
                 >
@@ -130,7 +125,7 @@ export default function BusinessCard({
                 </Col>
               )
             )}
-            <Col >
+            <Col>
               <hr className="mb-2" />
               <a
                 className="dec-off p-2 radius2 bg-light mb-2"
