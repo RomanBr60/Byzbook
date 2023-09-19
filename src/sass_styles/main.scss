@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300&display=swap');
+
+body{
+  font-family: 'Noto Sans Hebrew', sans-serif!important;
+background-color: rgb(27, 1, 20)!important;
+}
+.dec-off{
+text-decoration: none!important;
+}
+.border-none{
+    border: none;
+}
+
+.cursor{
+    cursor: pointer!important;
+}
+.cursor-off{
+  cursor: auto!important;
+}
+.clear-float {
+    clear: both;
+  }
+  .overflow_hidden {
+    overflow: hidden!important;
+  }
+
+  @media screen and (min-width: 948px) {
+   .col1-responsive{
+     
+    }
+  }
+  @media screen and (max-width: 946px) {
+    .col1-responsive{
+     width: 100%!important;
+    }
+    .flex-row-responsive{
+    flex-direction: column!important;
+
+    }
+  }
